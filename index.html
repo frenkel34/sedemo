@@ -13,6 +13,7 @@
     // Cordova is ready
     //
     function onDeviceReady() {
+    	var url = 'http://www.booons.nl/sedemo/';
 		var ref = window.open(encodeURI(url), '_blank', options);
 		ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("mobile/close")) {
