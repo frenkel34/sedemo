@@ -7,7 +7,7 @@
     <script type="text/javascript" charset="utf-8">
     	alert('Device may be ready');
     	var url = 'http://www.booons.nl/sedemo/';
-		var ref = window.open(encodeURI(url));
+		var ref = cordova.InAppBrowser.open(encodeURI(url), '_blank', 'location=no');
 		ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
 				ref.close();
