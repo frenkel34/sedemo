@@ -5,9 +5,13 @@
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
-		<p>A window should open now... by clicking:</p>
+		<p>A window should open now... </p>
 	</body>
 	<script>
-		var ref = cordova.InAppBrowser.open('http://www.aap.nl', '_blank', 'location=yes');
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+			alert("window.open works well");
+			var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+		}
 	</script>
 </html>
