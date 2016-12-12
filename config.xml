@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.hiermoetjezijn.sedemo"
+        version   = "1.0.1">
+    <name>Okta SE Demo Application v1</name>
+    <description>
+        This is a application to demo to OKTA EMEA SE's
+    </description>
+	<author href="http://www.okta.com" email="frank.benus@okta.com">Frank Benus | Okta</author>
+	<preference name="phonegap-version" value="3.3.0" />  
+	<preference name="orientation" value="default" />
+	<preference name="fullscreen" value="false" />
+	<platform name="android">
+	</platform>
+	<gap:plugin name="org.apache.cordova.core.inappbrowser" />
+	<access origin="*" />
+</widget>
+
