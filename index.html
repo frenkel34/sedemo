@@ -9,12 +9,14 @@
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-
+		alert('Device is ready');
     // Cordova is ready
     //
     function onDeviceReady() {
     	var url = 'http://www.booons.nl/sedemo/';
+		alert('Opening window');
 		var ref = window.open(encodeURI(url));
+		alert('Done');
 		ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("mobile/close")) {
 				ref.close();
