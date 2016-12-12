@@ -19,7 +19,9 @@
 	<icon src="res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
 	</platform>
 	<icon src="res/icon.png" />
-	<plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+	<feature name="InAppBrowser">
+	  <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
+	</feature>
 	<access origin="*" browserOnly="true"/>
 </widget>
 
