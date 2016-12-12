@@ -38,7 +38,10 @@
 	<script>
 		$( document ).ready(function() {
 			alert('here we go!');
-			var ref = cordova.InAppBrowser.open('http://www.aap.nl', '_blank');
+var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+var myCallback = function(event) { alert(event.url); }
+ref.addEventListener('loadstart', myCallback);
+ref.removeEventListener('loadstart', myCallback);
 			alert('done');
 		});
 	</script>
