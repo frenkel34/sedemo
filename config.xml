@@ -8,7 +8,6 @@
         This is a application to demo to OKTA EMEA SE's
     </description>
 	<author href="http://www.okta.com" email="frank.benus@okta.com">Frank Benus | Okta</author>
-	<preference name="phonegap-version" value="3.6.0" />  
 	<preference name="orientation" value="default" />
 	<preference name="fullscreen" value="false" />
 	<platform name="android">
