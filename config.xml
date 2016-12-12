@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.hiermoetjezijn.sedemo"
-        version   = "1.0.1">
-    <name>Okta SE Demo Application v1</name>
+        id        = "com.okta.oidc-emirates-demo"
+        version   = "3.0.1">
+    <name>Okta Demo App</name>
     <description>
-        This is a application to demo to OKTA EMEA SE's
+        Native demo application for opening urls that are hosted elsewhere online to demo native app experience. 
     </description>
 	<author href="http://www.okta.com" email="frank.benus@okta.com">Frank Benus | Okta</author>
+	<preference name="phonegap-version" value="3.3.0" />  
 	<preference name="orientation" value="default" />
 	<preference name="fullscreen" value="false" />
 	<platform name="android">
+	<icon src="res/icons/android/icon-36-ldpi.png" qualifier="ldpi" />
+	<icon src="res/icons/android/icon-48-mdpi.png" qualifier="mdpi" />
+	<icon src="res/icons/android/icon-72-hdpi.png" qualifier="hdpi" />
+	<icon src="res/icons/android/icon-96-xhdpi.png" qualifier="xhdpi" />
+	<icon src="res/icons/android/icon-144-xxhdpi.png" qualifier="xxhdpi" />
+	<icon src="res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
 	</platform>
-	<feature name="InAppBrowser">
-		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-	</feature>
-	<plugin name="cordova-plugin-inappbrowser"/>
+	<icon src="res/icon.png" />
+	<gap:plugin name="org.apache.cordova.core.inappbrowser" />
 	<access origin="*" />
 </widget>
 
