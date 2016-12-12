@@ -32,35 +32,12 @@
 		<script src="js/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
-		<h1>Okta demo app</h1>
-		<p>Please setup the url you want to open when the app starts.</p>
-		<input id="rootDir" type="text" value="" placeholder="rootDir" /><br>
-		<input id="btn_save" type="button" value="save">
+		<h1>Okta SE demo app</h1>
+		<p>A window should open now....</p>
 	</body>
 	<script>
 		$( document ).ready(function() {
-			var rootDir = localStorage.getItem('rootDir');
-			$('#rootDir').val(rootDir);
-			if (rootDir === null || rootDir =='') {
-				$('body').show();
-			}
-				else
-			{
 				window.open(rootDir, '_blank', 'location=no');
-//				$('body').hide();
-				$('body').delay(2000).show(0);
-			}
-		});
-
-		$( "#btn_reset" ).click(function() {
-		  localStorage.setItem('rootDir', '');
-		  alert('done a reset');
-		  location.reload();
-		});
-
-		$( "#btn_save" ).click(function() {
-		  localStorage.setItem('rootDir', $('#rootDir').val());
-		  location.reload();
 		});
 	</script>
 </html>
