@@ -5,6 +5,7 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
     <script type="text/javascript" charset="utf-8">
+//    	window.open = cordova.InAppBrowser.open;
     	alert('Device may be ready');
     	var url = 'http://www.booons.nl/sedemo/';
 		var ref = window.open(encodeURI(url), '_blank', 'location=no');
