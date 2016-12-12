@@ -28,20 +28,25 @@
 				padding:1vh;
 			}
 		</style>
+		<script src="phonegap.js"></script>
 		<script src="cordova.js"></script>
 		<script src="js/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
-		<p>A window should open now....</p>
+		<p>A window should open now... by clicking: <a href='#' onclick="openURL('http://www.urlyouwant')"/>here</a></p>
 	</body>
 	<script>
+		function openURL(urlString){
+			myURL = encodeURI(urlString);
+			window.open(myURL, '_blank');
+		}
+
 		$( document ).ready(function() {
 			alert('here we go!');
-var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-var myCallback = function(event) { alert(event.url); }
-ref.addEventListener('loadstart', myCallback);
-ref.removeEventListener('loadstart', myCallback);
+
+
+
 			alert('done');
 		});
 	</script>
