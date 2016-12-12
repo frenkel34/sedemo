@@ -7,11 +7,9 @@
     <script type="text/javascript" charset="utf-8">
     	alert('Device may be ready');
     	var url = 'http://www.booons.nl/sedemo/';
-		alert('Opening window');
 		var ref = window.open(encodeURI(url));
-		alert('done');
 		ref.addEventListener('loadstop', function(event) {        
-			if (event.url.match("mobile/close")) {
+			if (event.url.match("event://stop/app")) {
 				ref.close();
 			}
 		});
