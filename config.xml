@@ -20,6 +20,6 @@
 	</platform>
 	<icon src="res/icon.png" />
 	<plugin name="cordova-plugin-inappbrowser" spec="https://github.com/apache/cordova-plugin-inappbrowser" />
-	<access origin="*" browserOnly="true"/>
+	<access origin="*" subdomains="true" />
 </widget>
 
