@@ -13,7 +13,9 @@
 	<preference name="fullscreen" value="false" />
 	<platform name="android">
 	</platform>
-	<gap:plugin name="org.apache.cordova.core.inappbrowser" />
+	<feature name="InAppBrowser">
+		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+	</feature>
 	<access origin="*" />
 </widget>
 
