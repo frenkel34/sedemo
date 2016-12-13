@@ -27,7 +27,7 @@
 				if (baseUrl.match("http://stop/app")) {
 						var url = event.url;
 						alert('This is THE url: '+ url);
-						var params = url.substr ( url.indexOf ( '#' ) + 1 );
+						var params = url.replace('http://sop/app#id_token', '');
 
 						alert('This is THE params: '+ params.hash);
 //						$('#lbl_token').html(params);
