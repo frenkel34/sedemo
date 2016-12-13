@@ -20,6 +20,8 @@
 			//alert("device is ready");
 			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
 			ref.addEventListener('loadstop', function(event) {        
+			alert(url);
+			alert(event.url.substring(0, 15));
 			if (event.url.substring(0, 15) == "http://stop/app") {
 					var url = event.url;
 					$('#lbl_token').html(url.hash.substr(1));
