@@ -8,14 +8,25 @@
 	<body>
 		<h1>Okta SE demo app</h1>
 		<p>A window should open now... or now...</p>
-		<span id="lnk_linkedin" href="#">Goto LinkedIn</span>
+		<span id="lnk_linkedin" href="#">Goto LinkedIn</span> <br><br> 
+		<span id="lnk_facebook" href="#">Goto Facebook</span> <br><br> 
+		<span id="lnk_googleplus" href="#">Goto googleplus</span>
+		
 		<p id="lbl_token"></p>
 	</body>
 	<script>
 		$( "#lnk_linkedin" ).click(function() {
-//					alert('click');
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
 		});
+		$( "#lnk_facebook" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacy8jkfxWnxwgPn0i6&client_id=eiXCFnbZE1LzT7ahtOwH&response_type=id_token&scope=openid%20email%20profile&redirect_uri=https://randomcompany.okta-emea.com/app/UserHome&state=someState&nonce=someNonce', '_blank', 'location=no');
+		});
+		$( "#lnk_googleplus" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=https://randomcompany.okta-emea.com/app/UserHome&state=someState3&nonce=someNonce3');
+		});
+
+
+
 
 // function to open browser
 		function openBrowser(redirurl) {
