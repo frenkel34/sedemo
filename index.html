@@ -102,17 +102,21 @@
 		if (app_debug_show == true) {
 			$('#app_debug').show();
 		}
-
+		if (app_logo_url != '') {
+			var currentHtml = $("#app_text_title").html();
+			var imageHtml = '<img src="'+ app_logo_url +'"/>'
+			$("#app_text_title").html(imageHtml + ' '  + currentHtml);
+		};
 		
 // App interactions
 		$( "#lnk_linkedin" ).click(function() {
-					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_li_idp +'&client_id='+ social_li_clientid +'&response_type=id_token&scope='+ social_li_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
 		});
 		$( "#lnk_facebook" ).click(function() {
-					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacy8jkfxWnxwgPn0i6&client_id=eiXCFnbZE1LzT7ahtOwH&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_fb_idp +'&client_id='+ social_fb_clientid +'&response_type=id_token&scope='+ social_fb_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
 		});
 		$( "#lnk_googleplus" ).click(function() {
-					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState3&nonce=someNonce3', '_blank', 'location=no');
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_gp_idp +'&client_id='+ social_gp_clientid +'&response_type=id_token&scope='+ social_gp_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
 		});
 		$( "#lnk_applist" ).click(function() {
 			gotoDashboard();
