@@ -77,7 +77,7 @@
 
 // Function to open browser
 		function openBrowser(redirurl) {
-			var ref = window.open(redirurl, '_blank', 'location=yes');
+			var ref = window.open(redirurl, '_blank', 'location=no');
 			ref.addEventListener('loadstop', function(event) {        
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
