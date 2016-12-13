@@ -14,7 +14,7 @@
 			alert("device is ready");
 			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
 			ref.addEventListener( "loadstop", function() {
-				win.executeScript({ code: "alert( 'loadstop' );" });
+				ref.executeScript({ code: "alert( 'loadstop' );" });
 			});
 			ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
