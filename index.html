@@ -26,13 +26,13 @@
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
 						var url = event.url;
-						alert('This is THE url: '+ url);
+//						alert('This is THE url: '+ url);
 						var params = url.substr ( url.indexOf ( '#' ) + 1 );
 
-						alert('This is THE params: '+ params);
+//						alert('This is THE params: '+ params);
 						$('#lbl_token').html(params);
 						ref.close();
-						alert('done handling the close event');
+//						alert('done handling the close event');
 				}
 			});
 		}
