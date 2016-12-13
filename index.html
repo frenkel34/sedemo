@@ -14,15 +14,12 @@
 
 // function to open browser
 		function openBrowser() {
-			alert("device is ready");
+			//alert("device is ready");
 			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
-			ref.addEventListener( "loadstop", function() {
-				ref.executeScript({ code: "alert( 'loadstop' );" });
-			});
 			ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
 					var url = event.url;
-					alert(url);
+					$('#lbl_token').html(url.hash.substr(1));
 					ref.close();
 				}
 			});
