@@ -18,7 +18,7 @@
 // function to open browser
 		function openBrowser() {
 			//alert("device is ready");
-			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
+			var ref = cordova.InAppBrowser.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
 			ref.addEventListener('loadstop', function(event) {        
 			alert(url);
 			alert(event.url.substring(0, 15));
