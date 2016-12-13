@@ -21,8 +21,8 @@
 		function openBrowser(redirurl) {
 			//alert("device is ready");
 			var ref = window.open(redirurl, '_blank', 'location=yes');
-			ref.addEventListener('loadstop', function(event) {        
 			alert(url);
+			ref.addEventListener('loadstop', function(event) {        
 			alert(event.url.substring(0, 15));
 			if (event.url.match("http://stop/app")) {
 					var url = event.url;
