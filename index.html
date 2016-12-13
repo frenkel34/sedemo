@@ -2,10 +2,13 @@
 <html>
 	<head>
 		<script src="phonegap.js"></script>	
+		<script src="jquery-3.1.0.min.js"></script>
+
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
 		<p>A window should open now... or now...</p>
+		<p id="lbl_token"></p>
 	</body>
 	<script>
 
@@ -19,7 +22,7 @@
 			ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
 					var url = event.url;
-					alert(url);
+					$('#lbl_token').html(url);
 					ref.close();
 				}
 			});
