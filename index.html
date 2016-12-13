@@ -8,14 +8,11 @@
 		<p>A window should open now... or now...</p>
 	</body>
 	<script>
-// Open the browser on desktop
-		openBrowser();
 
 // function to open browser
 		function openBrowser() {
 			alert("device is ready");
 			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
-// Add event listener to close browser
 			ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
 					ref.close();
