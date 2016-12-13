@@ -3,12 +3,10 @@
 	<head>
 		<script src="phonegap.js"></script>	
 		<script src="jquery-3.1.0.min.js"></script>
+
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
-		<a id="lnk_linkedin" href="https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2">LinkedIn</a>
-		
-		
 		<p>A window should open now... or now...</p>
 		<p id="lbl_token"></p>
 	</body>
@@ -16,14 +14,15 @@
 
 // function to open browser
 		function openBrowser() {
-			//alert("device is ready");
-			var ref = cordova.InAppBrowser.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
+			alert("device is ready");
+			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
+			ref.addEventListener( "loadstop", function() {
+				ref.executeScript({ code: "alert( 'loadstop' );" });
+			});
 			ref.addEventListener('loadstop', function(event) {        
-			alert(url);
-			alert(event.url.substring(0, 15));
-			if (event.url.substring(0, 15) == "http://stop/app") {
+			if (event.url.match("http://stop/app")) {
 					var url = event.url;
-					$('#lbl_token').html(url.hash.substr(1));
+					alert(url);
 					ref.close();
 				}
 			});
@@ -32,8 +31,7 @@
 // When device is ready
 		document.addEventListener("deviceready", onDeviceReady, false);
 		function onDeviceReady() {
-//			openBrowser();
+			openBrowser();
 		}
-
 	</script>
 </html>
