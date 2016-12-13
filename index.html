@@ -42,6 +42,14 @@
 			color:#a1a1a1;
 			display:none;
 		}
+		div.debug_item {
+			padding:2vw 1vw 2vw 1vw;
+			width:98vw;
+		}
+		
+		hr {
+			border: solid 1px #c5c5c5;
+		}
 		</style>
 	</head>
 	<body>
@@ -58,8 +66,10 @@
 	<script src="config.js"></script>
 	<script>
 		// Set the configuration
-		$('#app_debug').html('');
-		$('#app_debug').append('<div class="debug_item">application started</div>');
+		$('#app_debug').html('<hr>');
+		addDebug('initializing application');
+		addDebug('application ready');
+		
 		$('#app_text_title').html(app_text_title);
 		$('#app_text_title').css('color', app_color_primary);
 		$('#app_text_login').css('color', app_color_primary);
@@ -93,18 +103,25 @@
 
 // Function to open browser
 		function openBrowser(redirurl) {
-			var ref = window.open(redirurl, '_blank', 'location=yes');
+			var ref = window.open(redirurl, '_blank', 'location=no');
 			ref.addEventListener('loadstop', function(event) {        
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
 						var url = event.url;
 						var params = url.substr ( url.indexOf ( '#' ) + 1 );
-						$('#app_debug').append('<div class="debug_item">'+ params +'</div>');
+						$('#app_debug').append('<hr><div class="debug_item">'+ params +'</div>');
 						ref.close();
 				}
 			});
 		}
-		
+
+// Function for debug rules
+		function addDebug(sMessage) {
+			
+			$('#app_debug').append('<div class="debug_item">'+sMessage+'</div><hr>');
+		};
+
+
 // When device is ready
 		document.addEventListener("deviceready", onDeviceReady, false);
 		function onDeviceReady() {
