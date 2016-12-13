@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script src="phonegap.js"></script>	
+		<script src="jquery-3.1.1.min.js"></script>
+		<style>
+		p, h1 {
+			padding:1vw;
+			width:98vw;		
+		}
+		
+		h1 {
+			text-align:center;
+			text-transform: uppercase;
+		}
+		
+		body {
+			padding:0;
+			margin:0;
+			font-family: calibri;
+		}
+		
+		div.button {
+			color:#FFFFFF;
+			padding:3vw 1vw 3vw 1vw;
+			width:98vw;
+		}
+		
+		div.facebook {
+			background-color:#3B5998;			
+		}
+		div.linkedin {
+			background-color:#0077B5;			
+		}
+		div.googleplus {
+			background-color:#C13C31;			
+		}
+		</style>
+	</head>
+	<body>
+		<h1 id="app_text_title">Okta SE demo app</h1>
+		<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
+		<div id="app_social">
+			<div class="button linkedin" id="lnk_linkedin" href="#">Goto LinkedIn</div>
+			<div class="button facebook" id="lnk_facebook" href="#">Goto Facebook</div>
+			<div class="button googleplus" id="lnk_googleplus" href="#">Goto googleplus</div>
+		</div>
+		<br>
+		<div id="app_navigation">
+			<div class="button linkedin" id="lnk_linkedin" href="#">Website</div>
+			<div class="button linkedin" id="lnk_linkedin" href="#">Help</div>
+			<div class="button linkedin" id="lnk_linkedin" href="#">Community</div>
+		</div>
+		<div id="app_debug">
+		
+		</div>		
+		<p id="lbl_token"></p>
+	</body>
+	<script src="config.js"></script>
+	<script>
+		// Set the configuration
+		$('#app_text_title').html(app_text_title);
+		$('#app_text_title').css('color', app_color_primary);
+		$('#app_text_login').css('color', app_color_primary);
+		$('body').css('background-color', app_color_background);
+		$('#app_text_login').html(app_text_login);
+		
+
+
+
+
+	
+	</script>
+</html>
