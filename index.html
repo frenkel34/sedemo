@@ -21,9 +21,10 @@
 		}
 		
 		div.button {
-			color:#FFFFFF;
+			color:#ffffff;
 			padding:3vw 1vw 3vw 1vw;
 			width:98vw;
+			margin-bottom:1px;
 		}
 		
 		div.facebook {
@@ -42,7 +43,12 @@
 			color:#a1a1a1;
 			display:none;
 		}
-		div.debug_item {
+		
+		#app_navigation {
+			display:none;
+		}
+		
+		div.debug_item div.app_item{
 			padding:2vw 1vw 2vw 1vw;
 			width:98vw;
 		}
@@ -54,13 +60,18 @@
 	</head>
 	<body>
 		<h1 id="app_text_title">Okta SE demo app</h1>
-		<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
-		<div id="app_social">
+		<div class="app_brick" id="app_login">
+			<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
+		</div>
+		<div class="app_brick" id="app_social">
 		</div>
 		<br>
-		<div id="id_navigation">
+		<div class="app_brick" id="app_navigation">
 			<div class="button" id="lnk_applist" href="#">See apps</div>
 		</div>
+		<div class="app_brick" id="app_applist">
+			
+		</div>		
 		<div id="app_debug">
 			test message
 		</div>		
@@ -72,7 +83,6 @@
 		$('#app_debug').html('<hr>');
 		addDebug('initializing application');
 		addDebug('application ready');
-		
 		$('#app_text_title').html(app_text_title);
 		$('#app_text_title').css('color', app_color_primary);
 		$('#app_text_login').css('color', app_color_primary);
@@ -106,8 +116,41 @@
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState3&nonce=someNonce3', '_blank', 'location=no');
 		});
 		$( "#lnk_applist" ).click(function() {
-			window.open(okta_org_url + '/api/v1/users/me/appLinks'); 
+			gotoDashboard();
 		});
+
+// Function to get apps for a user
+		function addAppItem(priLabel, secLabel, appLink) {
+			$('#app_applist').append('<a href="'+ appLink+'"><div style="background-color:'+ app_color_secundary +'" class="app_item button" title="'+ priLabel +'">'+ secLabel +'</div></a>');
+		}
+
+		function gotoDashboard() {
+			console.log('getting the apps');
+			var settings = {
+			  "async": true,
+			  "crossDomain": true,
+			  "url": "https://randomcompany.okta-emea.com/api/v1/users/me/appLinks",
+			  "method": "GET",
+			  "headers": {
+				"accept": "application/json",
+				"content-type": "application/json",
+				"cache-control": "no-cache"
+				},
+			  "xhrFields" : {
+				"withCredentials": "true" 
+				} 
+			}
+			$.ajax(settings).done(function (response) {
+				$('.app_brick').hide();
+				$('#app_applist').show();
+				response.forEach(function(entry) {
+					if (entry.hidden != true) {
+						addAppItem(entry.appName, entry.label, entry.linkUrl);
+					};
+				});
+			  console.log(response);
+			})
+		}
 
 // Function to open browser
 		function openBrowser(redirurl) {

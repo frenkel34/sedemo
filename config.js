@@ -5,7 +5,8 @@
 okta_org_url 			= 'http://randomcompany.okta-emea.com';
 
 // App look and feel
-app_text_title			= 'Okta EMEA SE Demo';
+app_logo_url			= 'https://randomcompany.okta-emea.com/';
+app_text_title			= 'RC mobile';
 app_text_login			= 'Please fill in your username and password';
 app_color_background	= 'fff';
 app_color_primary		= '000';
