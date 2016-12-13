@@ -6,7 +6,7 @@ okta_org_url 			= 'http://randomcompany.okta-emea.com';
 
 // App look and feel
 app_logo_url			= 'https://eu1static.oktacdn.com/bc/image/fileStoreRecord?id=fs06iq6y5t5A1ieCp0i6';
-app_text_title			= 'RC mobile';
+app_text_title			= 'RC demo portal';
 app_text_login			= 'Please fill in your username and password';
 app_color_background	= 'fff';
 app_color_primary		= '000';

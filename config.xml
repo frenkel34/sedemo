@@ -2,10 +2,10 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.okta.oidc-emirates-demo"
-        version   = "3.0.1">
-    <name>Okta SE Demo App</name>
+        version   = "3.1.1">
+    <name>RC Portal</name>
     <description>
-        Native demo application for opening urls that are hosted elsewhere online to demo native app experience. 
+        Native demo app for random company portal 
     </description>
 	<author href="http://www.okta.com" email="frank.benus@okta.com">Frank Benus | Okta</author>
 	<preference name="orientation" value="default" />
