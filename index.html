@@ -1,20 +1,70 @@
-
 <html>
 	<head>
 		<script src="phonegap.js"></script>	
-		<script src="jquery-3.1.0.min.js"></script>
-
+		<script src="jquery-3.1.1.min.js"></script>
+		<style>
+		p, h1 {
+			padding:1vw;
+			width:98vw;		
+		}
+		
+		h1 {
+			text-align:center;
+			text-transform: uppercase;
+		}
+		
+		body {
+			padding:0;
+			margin:0;
+			font-family: calibri;
+		}
+		
+		div.button {
+			color:#FFFFFF;
+			padding:3vw 1vw 3vw 1vw;
+			width:98vw;
+		}
+		
+		div.facebook {
+			background-color:#3B5998;			
+		}
+		div.linkedin {
+			background-color:#0077B5;			
+		}
+		div.googleplus {
+			background-color:#C13C31;			
+		}
+		</style>
 	</head>
 	<body>
-		<h1>Okta SE demo app</h1>
-		<p>A window should open now... or now...</p>
-		<span id="lnk_linkedin" href="#">Goto LinkedIn</span> <br><br> 
-		<span id="lnk_facebook" href="#">Goto Facebook</span> <br><br> 
-		<span id="lnk_googleplus" href="#">Goto googleplus</span>
+		<h1 id="app_text_title">Okta SE demo app</h1>
+		<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
+		<div id="app_social">
+			<div class="button linkedin" id="lnk_linkedin" href="#">Goto LinkedIn</div>
+			<div class="button facebook" id="lnk_facebook" href="#">Goto Facebook</div>
+			<div class="button googleplus" id="lnk_googleplus" href="#">Goto googleplus</div>
+		</div>
+		<br>
+		<div id="app_navigation">
+			<div class="button linkedin" id="lnk_linkedin" href="#">Website</div>
+			<div class="button linkedin" id="lnk_linkedin" href="#">Help</div>
+			<div class="button linkedin" id="lnk_linkedin" href="#">Community</div>
+		</div>
+		<div id="app_debug">
 		
+		</div>		
 		<p id="lbl_token"></p>
 	</body>
+	<script src="config.js"></script>
 	<script>
+		// Set the configuration
+		$('#app_text_title').html(app_text_title);
+		$('#app_text_title').css('color', app_color_primary);
+		$('#app_text_login').css('color', app_color_primary);
+		$('body').css('background-color', app_color_background);
+		$('#app_text_login').html(app_text_login);
+		
+// App interactions
 		$( "#lnk_linkedin" ).click(function() {
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
 		});
@@ -25,25 +75,16 @@
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState3&nonce=someNonce3', '_blank', 'location=no');
 		});
 
-
-
-
-// function to open browser
+// Function to open browser
 		function openBrowser(redirurl) {
-			//alert("device is ready");
 			var ref = window.open(redirurl, '_blank', 'location=yes');
-//			alert(redirurl);
 			ref.addEventListener('loadstop', function(event) {        
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
 						var url = event.url;
-//						alert('This is THE url: '+ url);
 						var params = url.substr ( url.indexOf ( '#' ) + 1 );
-
-//						alert('This is THE params: '+ params);
 						$('#lbl_token').html(params);
 						ref.close();
-//						alert('done handling the close event');
 				}
 			});
 		}
@@ -51,9 +92,15 @@
 // When device is ready
 		document.addEventListener("deviceready", onDeviceReady, false);
 		function onDeviceReady() {
-//			openBrowser('http://www.booons.nl/sedemo/');
+
 		}
 
 
+	</script>
+
+
+
+
+	
 	</script>
 </html>

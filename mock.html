@@ -64,6 +64,39 @@
 		$('body').css('background-color', app_color_background);
 		$('#app_text_login').html(app_text_login);
 		
+// App interactions
+		$( "#lnk_linkedin" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
+		});
+		$( "#lnk_facebook" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacy8jkfxWnxwgPn0i6&client_id=eiXCFnbZE1LzT7ahtOwH&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
+		});
+		$( "#lnk_googleplus" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState3&nonce=someNonce3', '_blank', 'location=no');
+		});
+
+// Function to open browser
+		function openBrowser(redirurl) {
+			var ref = window.open(redirurl, '_blank', 'location=yes');
+			ref.addEventListener('loadstop', function(event) {        
+				var baseUrl = event.url.substring(0, 15);
+				if (baseUrl.match("http://stop/app")) {
+						var url = event.url;
+						var params = url.substr ( url.indexOf ( '#' ) + 1 );
+						$('#lbl_token').html(params);
+						ref.close();
+				}
+			});
+		}
+		
+// When device is ready
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+
+		}
+
+
+	</script>
 
 
 
