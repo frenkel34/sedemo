@@ -45,7 +45,6 @@
 		}
 		
 		#app_navigation {
-			display:none;
 		}
 		
 		div.debug_item div.app_item{
@@ -118,10 +117,11 @@
 		$( "#lnk_applist" ).click(function() {
 			gotoDashboard();
 		});
+		
 
 // Function to get apps for a user
 		function addAppItem(priLabel, secLabel, appLink) {
-			$('#app_applist').append('<a href="'+ appLink+'"><div style="background-color:'+ app_color_secundary +'" class="app_item button" title="'+ priLabel +'">'+ secLabel +'</div></a>');
+			$('#app_applist').append('<div appName="'+ secLabel +'" appTarget="'+appLink+'" style="background-color:'+ app_color_secundary +'" class="app_item button" title="'+ priLabel +'">'+ secLabel +'</div>');
 		}
 
 		function gotoDashboard() {
@@ -147,6 +147,10 @@
 					if (entry.hidden != true) {
 						addAppItem(entry.appName, entry.label, entry.linkUrl);
 					};
+				});
+				$( ".app_item" ).click(function() {
+					addDebug('opening app: '+ $(this).attr('appName'));
+					window.open($(this).attr('appTarget'), '_blank', 'location=no');
 				});
 			  console.log(response);
 			})
