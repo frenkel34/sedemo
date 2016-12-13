@@ -25,9 +25,9 @@
 			ref.addEventListener('loadstop', function(event) {        
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
-						alert('This is THE url');
-						var url = event.url;
-						$('#lbl_token').html('DONE');
+						var params = event.url.hash.substr(1);
+						alert('This is THE url and params: '+ params);
+//						$('#lbl_token').html(params);
 						ref.close();
 						alert('done handling the close event');
 				}
