@@ -17,6 +17,7 @@
 			padding:0;
 			margin:0;
 			font-family: calibri;
+			font-size:3vh;
 		}
 		
 		div.button {
@@ -34,35 +35,50 @@
 		div.googleplus {
 			background-color:#C13C31;			
 		}
+		
+		#app_debug {
+			font-family: courier;
+			font-size:2.2vh;
+			color:#a1a1a1;
+			display:none;
+		}
 		</style>
 	</head>
 	<body>
 		<h1 id="app_text_title">Okta SE demo app</h1>
 		<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
 		<div id="app_social">
-			<div class="button linkedin" id="lnk_linkedin" href="#">Goto LinkedIn</div>
-			<div class="button facebook" id="lnk_facebook" href="#">Goto Facebook</div>
-			<div class="button googleplus" id="lnk_googleplus" href="#">Goto googleplus</div>
 		</div>
 		<br>
-		<div id="app_navigation">
-			<div class="button linkedin" id="lnk_linkedin" href="#">Website</div>
-			<div class="button linkedin" id="lnk_linkedin" href="#">Help</div>
-			<div class="button linkedin" id="lnk_linkedin" href="#">Community</div>
-		</div>
 		<div id="app_debug">
-		
+			test message
 		</div>		
 		<p id="lbl_token"></p>
 	</body>
 	<script src="config.js"></script>
 	<script>
 		// Set the configuration
+		$('#app_debug').html('');
+		$('#app_debug').append('<div class="debug_item">application started</div>');
 		$('#app_text_title').html(app_text_title);
 		$('#app_text_title').css('color', app_color_primary);
 		$('#app_text_login').css('color', app_color_primary);
 		$('body').css('background-color', app_color_background);
 		$('#app_text_login').html(app_text_login);
+		
+		if (social_li_enable == true) {
+			$('#app_social').append('<div class="button linkedin" id="lnk_linkedin" href="#">LinkedIn</div>');
+		};
+		if (social_fb_enable == true) {
+			$('#app_social').append('<div class="button facebook" id="lnk_facebook" href="#">Facebook</div>');
+		};
+		if (social_gp_enable == true) {
+			$('#app_social').append('<div class="button googleplus" id="lnk_googleplus" href="#">Google +</div>');
+		};
+		if (app_debug_show == true) {
+			$('#app_debug').show();
+		}
+
 		
 // App interactions
 		$( "#lnk_linkedin" ).click(function() {
@@ -83,7 +99,7 @@
 				if (baseUrl.match("http://stop/app")) {
 						var url = event.url;
 						var params = url.substr ( url.indexOf ( '#' ) + 1 );
-						$('#lbl_token').html(params);
+						$('#app_debug').append('<div class="debug_item">'+ params +'</div>');
 						ref.close();
 				}
 			});
