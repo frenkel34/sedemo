@@ -8,11 +8,11 @@
 	<body>
 		<h1>Okta SE demo app</h1>
 		<p>A window should open now... or now...</p>
-		<p id="lnk_linkedin" href="#">Goto LinkedIn</p>
+		<span id="lnk_linkedin" href="#">Goto LinkedIn</span>
 		<p id="lbl_token"></p>
 	</body>
 	<script>
-		$( "p" ).click(function() {
+		$( "#lnk_linkedin" ).click(function() {
 					alert('click');
 					ref = openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
 		});
@@ -22,6 +22,8 @@
 			//alert("device is ready");
 			var ref = window.open(redirurl, '_blank', 'location=yes');
 			ref.addEventListener('loadstop', function(event) {        
+			alert(url);
+			alert(event.url.substring(0, 15));
 			if (event.url.match("http://stop/app")) {
 					var url = event.url;
 					$('#lbl_token').html(url.hash.substr(1));
