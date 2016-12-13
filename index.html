@@ -26,7 +26,8 @@
 				var baseUrl = event.url.substring(0, 15);
 				if (baseUrl.match("http://stop/app")) {
 						var params = event.url;
-						alert('This is THE url: '+ params.hash);
+						alert('This is THE url: '+ params);
+						alert('This is THE params: '+ params.hash);
 //						$('#lbl_token').html(params);
 						ref.close();
 						alert('done handling the close event');
