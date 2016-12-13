@@ -13,7 +13,7 @@
 	</body>
 	<script>
 		$( "#lnk_linkedin" ).click(function() {
-					alert('click');
+//					alert('click');
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2', '_blank', 'location=no');
 		});
 
@@ -29,6 +29,7 @@
 						var url = event.url;
 						$('#lbl_token').html(url.hash.substr(1));
 						ref.close();
+						alert('done handling the close event');
 				}
 			});
 		}
