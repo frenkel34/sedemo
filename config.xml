@@ -18,7 +18,7 @@
 	<icon src="res/icons/android/icon-144-xxhdpi.png" qualifier="xxhdpi" />
 	<icon src="res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
 	</platform>
-	<icon src="res/icon.png" />
+	<icon src="android-icon-192x192.png" />
 	<plugin name="cordova-plugin-inappbrowser" spec="https://github.com/apache/cordova-plugin-inappbrowser" />
 	<access origin="*" subdomains="true" />
 </widget>
