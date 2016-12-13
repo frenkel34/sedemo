@@ -58,6 +58,9 @@
 		<div id="app_social">
 		</div>
 		<br>
+		<div id="id_navigation">
+			<div class="button" id="lnk_applist" href="#">See apps</div>
+		</div>
 		<div id="app_debug">
 			test message
 		</div>		
@@ -73,8 +76,10 @@
 		$('#app_text_title').html(app_text_title);
 		$('#app_text_title').css('color', app_color_primary);
 		$('#app_text_login').css('color', app_color_primary);
+		$('.button').css('background-color', app_color_secundary);
 		$('body').css('background-color', app_color_background);
 		$('#app_text_login').html(app_text_login);
+		
 		
 		if (social_li_enable == true) {
 			$('#app_social').append('<div class="button linkedin" id="lnk_linkedin" href="#">LinkedIn</div>');
@@ -99,6 +104,9 @@
 		});
 		$( "#lnk_googleplus" ).click(function() {
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oad3gqm0nkUSd9uJ0i6&client_id=VD495qEPPsYluex6tj6G&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState3&nonce=someNonce3', '_blank', 'location=no');
+		});
+		$( "#lnk_applist" ).click(function() {
+			window.open(okta_org_url + '/api/v1/users/me/appLinks'); 
 		});
 
 // Function to open browser

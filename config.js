@@ -2,13 +2,14 @@
 // Author: Frank Benus
 
 // Default values
-okta_Org_Url 			= 'http://randomcompany.okta-emea.com';
+okta_org_url 			= 'http://randomcompany.okta-emea.com';
 
 // App look and feel
 app_text_title			= 'Okta EMEA SE Demo';
 app_text_login			= 'Please fill in your username and password';
 app_color_background	= 'fff';
 app_color_primary		= '000';
+app_color_secundary		= 'ff5500';
 app_debug_show			= true;
 
 // Facebook settings
