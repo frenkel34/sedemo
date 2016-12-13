@@ -7,6 +7,9 @@
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
+		<a id="lnk_linkedin" href="https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp=0oacyj8ypAB4J4gr30i6&client_id=QGSed7lDqb73VA6UrrXw&response_type=id_token&scope=openid%20email%20profile&redirect_uri=http://stop/app&state=someState2&nonce=someNonce2">LinkedIn</a>
+		
+		
 		<p>A window should open now... or now...</p>
 		<p id="lbl_token"></p>
 	</body>
@@ -19,7 +22,7 @@
 			ref.addEventListener('loadstop', function(event) {        
 			if (event.url.match("http://stop/app")) {
 					var url = event.url;
-					$('#lbl_token').html(url);
+					$('#lbl_token').html(url.hash.substr(1));
 					ref.close();
 				}
 			});
@@ -28,7 +31,8 @@
 // When device is ready
 		document.addEventListener("deviceready", onDeviceReady, false);
 		function onDeviceReady() {
-			openBrowser();
+//			openBrowser();
 		}
+
 	</script>
 </html>
