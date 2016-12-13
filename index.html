@@ -161,6 +161,7 @@
 						var url = event.url;
 						var params = url.substr ( url.indexOf ( '#' ) + 1 );
 						$('#app_debug').append('<hr><div class="debug_item">'+ params +'</div>');
+						gotoDashboard();
 						ref.close();
 				}
 			});
