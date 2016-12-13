@@ -2,10 +2,7 @@
 <html>
 	<head>
 		<script src="phonegap.js"></script>	
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 6b0f7f1... show token in app
+		<script src="jquery-3.1.0.min.js"></script>
 	</head>
 	<body>
 		<h1>Okta SE demo app</h1>
@@ -13,28 +10,23 @@
 		
 		
 		<p>A window should open now... or now...</p>
+		<p id="lbl_token"></p>
 	</body>
 	<script>
 
 // function to open browser
 		function openBrowser() {
-<<<<<<< HEAD
 			//alert("device is ready");
 			var ref = cordova.InAppBrowser.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
-=======
-			alert("device is ready");
-			var ref = window.open('http://www.booons.nl/sedemo/', '_blank', 'location=yes');
-			ref.addEventListener( "loadstop", function() {
-				ref.executeScript({ code: "alert( 'loadstop' );" });
-			});
 			ref.addEventListener('loadstop', function(event) {        
-			if (event.url.match("http://stop/app")) {
+			alert(url);
+			alert(event.url.substring(0, 15));
+			if (event.url.substring(0, 15) == "http://stop/app") {
 					var url = event.url;
-					alert(url);
+					$('#lbl_token').html(url.hash.substr(1));
 					ref.close();
 				}
 			});
->>>>>>> parent of 6b0f7f1... show token in app
 		}
 		
 // When device is ready
