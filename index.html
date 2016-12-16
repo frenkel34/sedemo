@@ -36,6 +36,9 @@
 		div.googleplus {
 			background-color:#C13C31;			
 		}
+		div.okta {
+			background-color:#0079BB;			
+		}
 		
 		#app_debug {
 			font-family: courier;
@@ -68,6 +71,8 @@
 		<br>
 		<div class="app_brick" id="app_navigation">
 			<div class="button" id="lnk_applist" href="#">See apps</div>
+			<div class="button" id="lnk_endsession" href="#">End all sessions</div>
+
 		</div>
 		<div class="app_brick" id="app_applist">
 			
@@ -100,6 +105,9 @@
 		if (social_gp_enable == true) {
 			$('#app_social').append('<div class="button googleplus" id="lnk_googleplus" href="#">Google +</div>');
 		};
+		if (social_ok_enable == true) {
+			$('#app_social').append('<div class="button okta" id="lnk_okta" href="#">Okta</div>');
+		};
 		if (app_debug_show == true) {
 			$('#app_debug').show();
 		}
@@ -119,6 +127,23 @@
 		$( "#lnk_googleplus" ).click(function() {
 					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_gp_idp +'&client_id='+ social_gp_clientid +'&response_type=id_token&scope='+ social_gp_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
 		});
+		$( "#lnk_okta" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_ok_idp +'&client_id='+ social_ok_clientid +'&response_type=id_token&scope='+ social_ok_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
+		});
+		
+		$( "#lnk_okta" ).click(function() {
+					openBrowser('https://randomcompany.okta-emea.com/oauth2/v1/authorize?idp='+ social_ok_idp +'&client_id='+ social_ok_clientid +'&response_type=id_token&scope='+ social_ok_scope +'&redirect_uri=http://stop/app&state=someState&nonce=someNonce', '_blank', 'location=no');
+		});
+		
+		$( "#lnk_endsession" ).click(function() {
+			$.get( "https://randomcompany.okta-emea.com/login/signout", function( data ) {
+				alert( "Session is ended" );
+			});
+
+
+		});
+
+		
 		$( "#lnk_applist" ).click(function() {
 			gotoDashboard();
 		});

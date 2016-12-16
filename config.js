@@ -31,4 +31,8 @@ social_li_idp			= '0oacyj8ypAB4J4gr30i6';
 social_li_clientid		= 'QGSed7lDqb73VA6UrrXw';
 social_li_scope			= 'openid%20email%20profile';
 
-
+// Okta OAuth settings
+social_ok_enable		= true;
+social_ok_idp			= '0oa5ks094z5tNulRb0i6';
+social_ok_clientid		= 'NCVu9rFoBK0vzJ5srIkd';
+social_ok_scope			= 'openid%20email%20profile';
