@@ -67,13 +67,13 @@
 			<p id="app_text_login">This is a demo app for Okta Sales Engineers.</p>
 		</div>
 		<div class="app_brick" id="app_social">
+			<div class="button" id="lnk_endsession" href="#">End all sessions</div>
 		</div>
 		<br>
 		<div class="app_brick" id="app_navigation">
 			<div class="button" id="lnk_applist" href="#">See apps</div>
-			<div class="button" id="lnk_endsession" href="#">End all sessions</div>
-
 		</div>
+
 		<div class="app_brick" id="app_applist">
 			
 		</div>		
@@ -139,8 +139,6 @@
 			$.get( "https://randomcompany.okta-emea.com/login/signout", function( data ) {
 				alert( "Session is ended" );
 			});
-
-
 		});
 
 		
