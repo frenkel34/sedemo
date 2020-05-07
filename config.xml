@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.okta.sedemo"
-        version   = "3.1.1">
-    <name>RC Portal</name>
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="app.frankbenus.web" version="0.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>OML portal</name>
     <description>
-        Native demo app for random company portal 
+        This is a custom app that has been created by Frank Benus (Okta inc.) as part of a POC.
     </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        Okta inc.
+    </author>
 	<author href="http://www.okta.com" email="frank.benus@okta.com">Frank Benus | Okta</author>
 	<preference name="orientation" value="default" />
 	<preference name="fullscreen" value="false" />
